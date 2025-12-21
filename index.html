@@ -57,40 +57,8 @@
                     <h2 class="section-title">Latest Projects</h3>
                     <a href="/projects" class="more-link">→ more</a>
                 </div>
-                <div class="projects-list">
-                    <a href="/data-manipulation" class="project-card">
-                        <div class="project-image">
-                            <img src="manipulationCards.png" alt="Data Manipulation in Personal Informatics">
-                        </div>
-                        <div class="project-content no-links">
-                            <h3 class="project-title">Thinking Outside of the Data Box</h3>
-                            <p class="project-description">Exploring data manipulation as an approach to address stagnation in personal informatics, through Insert, Delete, Transform, Increase, and Reduce</p>
-                        </div>
-                    </a>
-
-                    <a href="/shorts-intervention" class="project-card">
-                        <div class="project-image">
-                            <img src="shorts_intervention.jpg" alt="Self-regulatory Intervention for Short-form Video">
-                        </div>
-                        <div class="project-content no-links">
-                            <h3 class="project-title">Shorts Intervention</h3>
-                            <p class="project-description">Intervention to support users to self-regulate their short-form video use, consisting of Goal Nudge, Viewing Checkpoint, Micro Reflection, and Viewing Logbook</p>
-                        </div>
-                    </a>
-
-                    <!-- <div class="project-card">
-                        <div class="project-image">
-                            <img src="Oxynizer 1.jpg" alt="Oxynizer: Non-electric & Sustainable Oxygen Generator">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Oxynizer: Non-electric & Sustainable Oxygen Generator</h3>
-                            <p class="project-description">We designed a non-electric and sustainable oxygen generator which can provide 1.5-2 times the oxygen concentration of ambient air, by just connecting with bicycle air pump. It contains sustainable materials (Zeolite and Silica gel), making it reusable without additional costs.</p>
-                            <div class="project-links">
-                                <span class="project-link">➡️ James Dyson Design Award 2024, Prototype for Humanity 2024, IDEA 2025</span>
-                                <span class="project-link award">🏅 IDEA Bronze Award, James Dyson Design Award National Winner</span>
-                            </div>
-                        </div>
-                    </div> -->
+                <div class="projects-list" id="latest-projects">
+                    <!-- Projects will be dynamically loaded here -->
                 </div>
             </div>
         </section>
@@ -118,6 +86,79 @@
                 document.querySelector('.hamburger').classList.remove('active');
             });
         });
+
+        // Load latest projects dynamically
+        function loadLatestProjects() {
+            const projectsData = [
+                {
+                    href: "/data-manipulation",
+                    image: "manipulationCards.png",
+                    alt: "Data Manipulation in Personal Informatics",
+                    title: "Thinking Outside of the Data Box",
+                    description: "Exploring data manipulation as an approach to address stagnation in personal informatics, through Insert, Delete, Transform, Increase, and Reduce"
+                },
+                {
+                    href: "/shorts-intervention",
+                    image: "shorts_intervention_cover.jpg",
+                    alt: "Self-regulatory Intervention for Short-form Video",
+                    title: "Shorts Intervention",
+                    description: "Intervention to support users to self-regulate their short-form video use, consisting of Goal Nudge, Viewing Checkpoint, Micro Reflection, and Viewing Logbook"
+                },
+                {
+                    href: "/oxynizer",
+                    image: "Oxynizer.jpg",
+                    alt: "Oxynizer: Sustainable & Non-electric Oxygen Generator",
+                    title: "Oxynizer",
+                    description: "Sustainable, non-electric oxygen generator using bicycle pumps for immediate oxygen supply in developing countries"
+                },
+                {
+                    href: "/a-step",
+                    image: "a-step.jpg",
+                    alt: "a-step",
+                    title: "a-step",
+                    description: "A curation platform featuring expert-selected videos on autism and developmental needs, helping users navigate complex information with trusted guidance"
+                },
+                {
+                    href: "/fluidtrack",
+                    image: "fluidtrack.png",
+                    alt: "FluidTrack",
+                    title: "FluidTrack",
+                    description: "Child-parent collaborative tracking system for pediatric voiding dysfunction, consisting of an app and wearable for tracking water intake, voiding, and defecation"
+                },
+                {
+                    href: "/chorogi",
+                    image: "초록이.jpg",
+                    alt: "초로기",
+                    title: "초록이",
+                    description: "Application for early-stage dementia screening and clinical support <br> <i>(초록이-Chorogi: a name combining 'early-stage(초로기)' and 'green(초록)' in Korean)</i>"
+                }
+            ];
+
+            const latestProjectsContainer = document.getElementById('latest-projects');
+            
+            // Get first 2 projects
+            for (let i = 0; i < Math.min(2, projectsData.length); i++) {
+                const project = projectsData[i];
+                const projectCard = document.createElement('a');
+                projectCard.href = project.href;
+                projectCard.className = 'project-card';
+                
+                projectCard.innerHTML = `
+                    <div class="project-image">
+                        <img src="${project.image}" alt="${project.alt}">
+                    </div>
+                    <div class="project-content no-links">
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="project-description">${project.description}</p>
+                    </div>
+                `;
+                
+                latestProjectsContainer.appendChild(projectCard);
+            }
+        }
+
+        // Load projects when page loads
+        document.addEventListener('DOMContentLoaded', loadLatestProjects);
     </script>
 </body>
 </html>
