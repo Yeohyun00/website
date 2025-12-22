@@ -295,8 +295,15 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Mobile hero-section adjustments */
+    .hero-section {
+        height: 100vh !important;
+        padding-top: 100px !important;
+        box-sizing: border-box !important;
+    }
+    
     .project-header {
-        padding: 80px 0 60px 0;
+        margin-bottom: 30px !important;
     }
     
     .project-main-title {
@@ -305,6 +312,22 @@
     
     .project-subtitle {
         font-size: 0.8rem;
+    }
+    
+    /* Mobile image sizing */
+    .hero-section .main-image-container {
+        margin: 0 0 30px 0 !important;
+    }
+    
+    .hero-section .main-image-container img {
+        height: 30vh !important;
+    }
+    
+    /* Mobile research question styling */
+    .research-question .section-title {
+        font-size: 1.2rem !important;
+        line-height: 1.4 !important;
+        margin-top: 0 !important;
     }
     
     .project-section {
