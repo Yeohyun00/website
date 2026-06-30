@@ -502,6 +502,16 @@ body {
     }
 }
 
+/* Home Bottom Section */
+.home-bottom-section {
+    padding: 20px 0 80px 0;
+    background-color: #ffffff;
+}
+
+.projects-col {
+    min-width: 0;
+}
+
 /* Footer */
 .footer {
     background-color: #ffffff;
@@ -630,8 +640,12 @@ body {
         font-size: 14px;
     }
     
-    .projects-section {
-        padding: 30px 0 80px 0;
+    .projects-col {
+        width: 100%;
+    }
+
+    .home-bottom-section {
+        padding: 20px 0 60px 0;
     }
     
     .project-card:first-child .project-content {
